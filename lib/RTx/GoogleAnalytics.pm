@@ -4,6 +4,9 @@ package RTx::GoogleAnalytics;
 
 our $VERSION = '0.01';
 
+require RT::Config;
+$RT::Config::META{'GoogleAnalytics'} = { Type => 'HASH' };
+
 =head1 NAME
 
 RTx-GoogleAnalytics - Easy configuration of a Google Analytics tracking code for your RT
@@ -30,7 +33,10 @@ or add C<RTx::GoogleAnalytics> to your existing C<@Plugins> line.
 
 Then set your Google-supplied tracking ID like so:
 
-    Set($GoogleAnalyticsTrackingID, 'UA-XXXXXXX-N');
+    Set(%GoogleAnalytics,
+        TrackingID  => 'UA-XXXXXXX-N',
+        Method      => 'classic',   # may also be 'universal'
+    );
 
 =item Clear your mason cache
 

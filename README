@@ -17,7 +17,10 @@ INSTALLATION
 
         Then set your Google-supplied tracking ID like so:
 
-            Set($GoogleAnalyticsTrackingID, 'UA-XXXXXXX-N');
+            Set(%GoogleAnalytics,
+                TrackingID  => 'UA-XXXXXXX-N',
+                Method      => 'classic',   # may also be 'universal'
+            );
 
     Clear your mason cache
             rm -rf /opt/rt4/var/mason_data/obj
